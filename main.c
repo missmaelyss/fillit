@@ -1,40 +1,25 @@
 #include "fillit.h"
-#include <stdio.h>
 
-/*typedef	struct	s_point
+int		main(int ac, char **av)
 {
-	int	x;
-	int	y;
-}				t_point;
-
-typedef	struct	s_piece
-{
-	t_point	cd[4];
-	char	c;
-}				t_piece;
-*/
-int		ft_valid_file(char *str);
-t_piece	*ft_save_piece(char *str, int nb_p);
-
-int		main(void)
-{
-	char	*str;
-	char	*str2;
+	char		buffer[1024];
 	int		nb_p;
-	t_piece	*tab;
-	int 	n;
+	t_piece		*tab;
+	int 		n;
 	int		n2;
+	int		fd;
+	
+	fd = open(av[1], O_RDONLY);
+//	printf("%d\n", fd);
+	read(fd, buffer, 1024);
 
-	str2 = "##..\n..##\n....\n....\n";
-	str = "....\n..##\n..#.\n..#.\n\n....\n....\n..##\n..##\n\n####\n....\n....\n....\n\n....\n....\n##..\n##..\n\n.##.\n..##\n....\n....\n\n....\n.##.\n..##\n....\n\n.#..\n###.\n....\n....\n\n....\n##..\n#...\n#...\n\n....\n.##.\n..#.\n..#.\n";
-
-	printf("%s\n", str2);
-	nb_p = ft_valid_file(str2);
-	printf("%d\n", nb_p);
+//	printf("%s\n", buffer);
+	nb_p = valid_file(buffer);
+//	printf("%d\n", nb_p);
 	if (nb_p == 0)
 		return (0);
-	tab = ft_save_piece(str2, nb_p);
-	n2 = 0;
+	tab = save_piece(buffer, nb_p);
+/*	n2 = 0;
 	while (n2 < nb_p)
 	{
 		n = 0;
@@ -46,5 +31,6 @@ int		main(void)
 		printf("\n");
 		n2++;
 	}
+*/	printf("%d\n", size_piece(tab[0]));
 	return (0);
 }
