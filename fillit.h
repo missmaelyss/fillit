@@ -6,6 +6,7 @@
 
 #include <stdlib.h>
 #include <fcntl.h>
+#include <unistd.h>
 
 #include <stdio.h>
 
@@ -24,6 +25,7 @@ typedef	struct	s_piece
 int		valid_file(char *str);
 t_piece		*save_piece(char *str, int nb_p);
 int		size_piece(t_piece piece);
+t_piece	move_up_left(t_piece piece);
 
 #endif
 

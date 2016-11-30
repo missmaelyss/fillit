@@ -28,5 +28,5 @@ int	size_piece(t_piece piece)
 		c = (val[1] - val[0]) + 1;
 	else
 		c = (val[3] - val[2]) + 1;
+	return (c);
 }
-

@@ -6,7 +6,7 @@
 /*   By: marnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 19:06:41 by marnaud           #+#    #+#             */
-/*   Updated: 2016/11/24 19:55:12 by marnaud          ###   ########.fr       */
+/*   Updated: 2016/11/30 12:56:30 by marnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ int			valid_file(char *str)
 		}
 		if (str[n] == '\n')
 		{
+			if (cursor.x != 5 && str[n - 1] != '\n')
+				return (0);
 			cursor.y++;
 			cursor.x = 0;
 		}
