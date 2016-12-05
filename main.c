@@ -16,11 +16,11 @@ int		main(int ac, char **av)
 	tab = save_piece(buffer, nb_p);
 	tab_f = write_tab(tab, nb_p);
 	nb_p = 0;
-/*	while(tab_f[nb_p])
+	while(tab_f[nb_p])
 	{
 		printf("%s\n", tab_f[nb_p]);
 		nb_p++;
-	}*/
+	}
 	return (0);
 }
 
