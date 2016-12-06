@@ -26,6 +26,7 @@ char	**create_tab(int n)
 	return(tab_f);
 }
 
+
 int		check_piece(t_piece piece, char **tab_f, t_point cursor, int size)
 {		
 	int	n;
@@ -33,7 +34,6 @@ int		check_piece(t_piece piece, char **tab_f, t_point cursor, int size)
 	n = 0;
 	while(n < 4)
 	{
-//		printf("x = %d, y = %d\n", cursor.x, cursor.y);
 		if (cursor.x == size || cursor.y == size)
 			return (0);
 		if( tab_f[cursor.y][cursor.x] != '.')
@@ -45,7 +45,6 @@ int		check_piece(t_piece piece, char **tab_f, t_point cursor, int size)
 		}
 		n++;
 	}
-
 	if( tab_f[cursor.y][cursor.x] != '.')
 		return(0);
 	return(1);
@@ -81,21 +80,33 @@ void	erase_piece(t_piece piece, char **tab_f, t_point cursor)
 	tab_f[cursor.y][cursor.x] = '.';
 }
 
-char	**write_tab(t_piece *tab, int nb_p)
+t_point		move_cursor(t_point *cursor, int size)
+{
+	if(cursor->x < size -1)
+		cursor->x++;
+	else
+	{	
+		cursor->y++;
+		cursor->x = 0;
+	}
+	return(*cursor);
+}
+
+t_point		initialise_cursor(t_point *cursor)
+{
+	cursor->x = 0;
+	cursor->y = 0;
+	return(*cursor);
+}
+
+char	**write_tab(t_piece *tab, int nb_p, int size, int n)
 {
 	char	**tab_f;
-	int 	size;
 	t_point	cursor;
-	int		n;
 	t_point	*tab_cursor;
-//	int		nb;
-	int		i;
 
 	tab_cursor = (t_point *)malloc(sizeof(t_point) * nb_p);
-	cursor.x = 0;
-	cursor.y = 0;
-	size = 2;
-	n = 0;
+	cursor = initialise_cursor(&cursor);
 	tab_f = create_tab(size);
 	while (n < nb_p)
 	{
@@ -103,56 +114,26 @@ char	**write_tab(t_piece *tab, int nb_p)
 		{
 			write_piece(tab[n], tab_f, cursor);
 			tab_cursor[n] = cursor;
-			cursor.x = 0;
-			cursor.y = 0;
+			cursor = initialise_cursor(&cursor);
 			n++;
-			i = 1;
 		}
-		else if (!(cursor.x == size - 1 && cursor.y == size - 1))
+		else if (n == 0)
 		{
-			i = 2;
-			if (cursor.x < size - 1)
-				cursor.x++;
-			else
-			{
-				cursor.y++;
-				cursor.x = 0;
-			}
+			cursor = initialise_cursor(&cursor);
+			size++;
+			free(tab_f);
+			tab_f = create_tab(size);
 		}
-		else {
-			if (n == 0)
+		else 
+		{
+			if(cursor.x == size - 1 && cursor.y == size - 1)
 			{
-				i = 4;
-				n = 0;
-				cursor.x = 0;
-				cursor.y = 0;
-				size++;
-				free(tab_f);
-				tab_f = create_tab(size);
-			}
-			else
-			{
-				i = 3;
 				n--;
 				cursor = tab_cursor[n];
 				erase_piece(tab[n], tab_f, cursor);
-				if (cursor.x < size - 1)
-					cursor.x++;
-				else
-				{
-					cursor.y++;
-					cursor.x = 0;
-				}
 			}
+			move_cursor(&cursor, size);
 		}
-/*		nb = 0;
-		while (tab_f[nb])
-		{
-			printf("%s\n", tab_f[nb]);
-			nb++;
-		}
-		printf("%d\nn = %d, x = %d, y = %d, size = %d", i, n, cursor.x, cursor.y, size);
-		printf("\n\n");
-*/	}
+	}
 	return (tab_f);
 }
