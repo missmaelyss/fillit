@@ -5,7 +5,6 @@ int	size_piece(t_piece piece)
 	int	c;
 	int	n;
 	int	val[4];
-//	val contient xmin, xmax, ymin et ymax
 
 	n = 0;
 	val[0] = piece.cd[n].x;

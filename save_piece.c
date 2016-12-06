@@ -12,6 +12,29 @@
 
 #include "fillit.h"
 
+static	void	initialisation(t_point *cursor, int *n, int *n_tab, int *n_cd)
+{
+	(*cursor).x = 1;
+	(*cursor).y = 1;
+	*n = 0;
+	*n_tab = 0;
+	*n_cd = 0;
+}
+
+static void	second_case(t_point *cursor)
+{
+	(*cursor).x = 0;
+	(*cursor).y++;
+}
+
+static void	third_case(t_point *cursor, int *n_tab, int *n_cd, t_piece **tab_p)
+{
+	(*cursor).y = 0;
+	(*n_tab)++;
+	(*tab_p)[*n_tab].c = (*tab_p)[*n_tab - 1].c + 1;
+	*n_cd = 0;
+}
+
 t_piece		*save_piece(char *str, int nb_p)
 {
 	t_piece		*tab_p;
@@ -22,11 +45,7 @@ t_piece		*save_piece(char *str, int nb_p)
 
 	if (!(tab_p = (t_piece *)malloc(sizeof(t_piece) * (nb_p))))
 		return (0);
-	cursor.x = 1;
-	cursor.y = 1;
-	n = 0;
-	n_tab = 0;
-	n_cd = 0;
+	initialisation(&cursor, &n, &n_tab, &n_cd);
 	tab_p[0].c = 'A';
 	while (str[n] != '\0')
 	{
@@ -36,17 +55,9 @@ t_piece		*save_piece(char *str, int nb_p)
 			n_cd++;
 		}
 		if (str[n] == '\n')
-		{
-		   cursor.x = 0;
-		   cursor.y++;
-		}
+			second_case(&cursor);
 		if (str[n] == '\n' && str[n + 1] == '\n')
-		{
-			cursor.y = 0;
-			n_tab++;
-			tab_p[n_tab].c = tab_p[n_tab - 1].c + 1;
-			n_cd = 0;
-		}
+			third_case(&cursor, &n_tab, &n_cd, &tab_p);
 		cursor.x++;
 		n++;
 	}
