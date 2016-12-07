@@ -1,5 +1,13 @@
 #include "fillit.h"
 
+static void		init(t_tab *tableau, t_point *cursor)
+{
+	(*tableau).n = 0;
+	(*tableau).size = 2;
+	(*tableau).tab_f = create_tab((*tableau).size);
+	initialise_cursor(cursor);
+}
+
 int		main(int ac, char **av)
 {
 	char		buffer[1024];
@@ -8,10 +16,8 @@ int		main(int ac, char **av)
 	t_point		*tab_cursor;
 	t_tab		tableau;
 
-	tableau.n = 0;
-	tableau.size = 2;
-	tableau.tab_f = create_tab(tableau.size);
-	initialise_cursor(&cursor);
+	(void)ac;
+	init(&tableau, &cursor);
 	tableau.fd = open(av[1], O_RDONLY);
 	read(tableau.fd, buffer, 1024);
 	tableau.nb_p = valid_file(buffer);
