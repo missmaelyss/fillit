@@ -6,7 +6,7 @@
 /*   By: marnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 16:20:29 by marnaud           #+#    #+#             */
-/*   Updated: 2016/12/07 16:25:24 by marnaud          ###   ########.fr       */
+/*   Updated: 2016/12/07 16:43:24 by marnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
-# include <stdio.h>
 
 typedef struct	s_point
 {
@@ -40,6 +39,8 @@ typedef struct	s_tab
 	char	**tab_f;
 }				t_tab;
 
+void			ft_putchar(char c);
+void			ft_putstr(const char *str);
 int				valid_file(char *str);
 t_piece			*save_piece(char *str, int nb_p);
 int				valid_piece(t_piece piece);

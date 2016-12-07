@@ -6,7 +6,7 @@
 /*   By: marnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 16:21:56 by marnaud           #+#    #+#             */
-/*   Updated: 2016/12/07 16:25:46 by marnaud          ###   ########.fr       */
+/*   Updated: 2016/12/07 16:45:00 by marnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,15 @@
 static int		usage(int n)
 {
 	if (n == 1)
-		printf("usage: fillit source\n");
+	{
+		ft_putstr("usage: fillit source");
+		ft_putchar('\n');
+	}
 	else
-		printf("error\n");
+	{
+		ft_putstr("error\n");
+		ft_putchar('\n');
+	}
 	return (0);
 }
 
@@ -51,7 +57,8 @@ int				main(int ac, char **av)
 	tableau.nb_p = 0;
 	while (tableau.tab_f[tableau.nb_p])
 	{
-		printf("%s\n", tableau.tab_f[tableau.nb_p]);
+		ft_putstr(tableau.tab_f[tableau.nb_p]);
+		ft_putchar('\n');
 		tableau.nb_p++;
 	}
 	return (0);

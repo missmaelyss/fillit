@@ -6,7 +6,7 @@
 #    By: marnaud <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/07 15:51:10 by marnaud           #+#    #+#              #
-#    Updated: 2016/12/07 16:08:04 by marnaud          ###   ########.fr        #
+#    Updated: 2016/12/07 16:42:10 by marnaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ SRC = create_tab.c \
 	  valid_piece.c \
 	  write_piece.c \
 	  write_tab.c \
+	  ft_putstr.c \
+	  ft_putchar.c \
 
 OBJ = $(SRC:%.c=%.o)
 
