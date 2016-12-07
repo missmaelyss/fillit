@@ -6,7 +6,7 @@
 /*   By: marnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 16:21:56 by marnaud           #+#    #+#             */
-/*   Updated: 2016/12/07 16:45:00 by marnaud          ###   ########.fr       */
+/*   Updated: 2016/12/07 16:53:16 by marnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,9 @@
 static int		usage(int n)
 {
 	if (n == 1)
-	{
-		ft_putstr("usage: fillit source");
-		ft_putchar('\n');
-	}
+		ft_putstr("usage: fillit source\n");
 	else
-	{
 		ft_putstr("error\n");
-		ft_putchar('\n');
-	}
 	return (0);
 }
 
