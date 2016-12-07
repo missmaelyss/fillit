@@ -6,7 +6,7 @@
 /*   By: marnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 19:17:19 by marnaud           #+#    #+#             */
-/*   Updated: 2016/12/07 10:43:07 by vparment         ###   ########.fr       */
+/*   Updated: 2016/12/07 14:57:55 by vparment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,14 @@ static	void	initialisation(t_point *cursor, int *n, int *n_tab, int *n_cd)
 	*n_cd = 0;
 }
 
-<<<<<<< HEAD
 static void		second_case(t_point *cursor)
-=======
-static void	second_case(t_point *cursor)
->>>>>>> e7a55c0776bf7f32edf481a92f12811072831c54
 {
 	(*cursor).x = 0;
 	(*cursor).y++;
 }
 
-<<<<<<< HEAD
 static void		third_case(t_point *cursor, int *n_tab, int *n_cd,
 				t_piece **tab_p)
-=======
-static void	third_case(t_point *cursor, int *n_tab, int *n_cd, t_piece **tab_p)
->>>>>>> e7a55c0776bf7f32edf481a92f12811072831c54
 {
 	(*cursor).y = 0;
 	(*n_tab)++;
@@ -44,11 +36,7 @@ static void	third_case(t_point *cursor, int *n_tab, int *n_cd, t_piece **tab_p)
 	*n_cd = 0;
 }
 
-<<<<<<< HEAD
 t_piece			*save_piece(char *str, int nb_p)
-=======
-t_piece		*save_piece(char *str, int nb_p)
->>>>>>> e7a55c0776bf7f32edf481a92f12811072831c54
 {
 	t_piece		*tab_p;
 	t_point		cursor;

@@ -33,7 +33,6 @@ typedef struct s_tab
 
 int			valid_file(char *str);
 t_piece		*save_piece(char *str, int nb_p);
-<<<<<<< HEAD
 int			valid_piece(t_piece piece);
 t_piece		move_up_left(t_piece piece);
 char		**create_tab(int n);
@@ -41,11 +40,6 @@ void		initialise_cursor(t_point *cursor);
 char		**write_tab(t_piece *piece, t_tab tableau, t_point cursor, t_point *tab_cursor);
 void		write_piece(t_piece piece, char **tab_f, t_point cursor);
 void		erase_piece(t_piece piece, char **tab_f, t_point cursor);
-=======
-int		size_piece(t_piece piece);
-t_piece	move_up_left(t_piece piece);
-char	**write_tab(t_piece *piece, int nb_p, int size, int n);
->>>>>>> e7a55c0776bf7f32edf481a92f12811072831c54
 
 #endif
 
