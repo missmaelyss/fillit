@@ -6,7 +6,7 @@
 #    By: marnaud <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/07 15:51:10 by marnaud           #+#    #+#              #
-#    Updated: 2016/12/07 16:42:10 by marnaud          ###   ########.fr        #
+#    Updated: 2016/12/08 12:04:20 by marnaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,9 @@ SRC = create_tab.c \
 
 OBJ = $(SRC:%.c=%.o)
 
-all:
+all: $(NAME)
+
+$(NAME):
 	gcc -Wall -Werror -Wextra -c $(SRC)
 	gcc -o $(NAME) $(OBJ)
 
